@@ -1,5 +1,4 @@
-# 腾讯社交广告高校算法大赛 Baseline
-
+# libFM
 just run:
 
 ensemble.py
