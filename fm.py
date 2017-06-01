@@ -79,9 +79,11 @@ class FactorizationMachine(BaseEstimator, ClassifierMixin):
         return prediction
 
 if __name__ == '__main__':
-    fm = FactorizationMachine('/home/ffl/nus/MM/cur_trans/tool/libfm',
+    # fm = FactorizationMachine('/home/ffl/nus/MM/cur_trans/tool/libfm',
+    fm = FactorizationMachine('/home/ffl/nus/MM/tencent_ad/code/libfm',
                               dim='1,1,8', init_stdev=0.005, iter=200,
-                              method='mcmc', out='test_fm.out', task='c',
+                              method='mcmc', out='test_fm.out', 
+                              rlog='train.log', task='c',
                               test='a1a.t', train='a1a')
     fm.fit(None, None)
     pre_prob = fm.predict_proba(None)
