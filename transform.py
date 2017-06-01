@@ -97,7 +97,12 @@ def out_data(trainData, trainLabels, trainTime, testData):
 def output(Lables, Data, file):
     f = open(file, 'w')
     for index in range( len(Lables) ):
-        f.write( str(Lables[index]) )
+        label = Lables[index]
+        if label == 0:
+            f.write('-1'))
+        else:
+            f.write('1')
+        # f.write( str(Lables[index]) )
         dic = Data[index]
         dic = {int(k): v for k, v in dic.items()}
         for key in sorted(dic):
@@ -109,7 +114,7 @@ if __name__ == '__main__':
     trainFile = 'merged-data/train_ad_app_position_user_actions.csv'
     testFile = 'merged-data/test_ad_app_position_user_actions.csv'
     categorical_fields=["creativeID", "adID", "camgaignID", "advertiserID", "appID", "appPlatform"]
-    historical_fields=["appActions"]
+    # historical_fields=["appActions"]
     t1 = time()
     trainData, trainLabels, trainTime, testData = read_data(trainFile, testFile, categorical_fields, historical_fields)
     print ("Load data done. [%.1f sec]" %(time()-t1))
